@@ -65,14 +65,16 @@ public class AffineCipher{
     */
     public String encrypt(String word){
 	if(word == null) throw new IllegalArgumentException();
-	String result = "STUB";//STUB
-	/*
+	String result = "";
+	
 	for(int i=0; i<word.length(); i++){
 	    if(word.charAt(i)<97 || word.charAt(i)>122)
 		throw new IllegalArgumentException();
-	    int k = (((word.charAt(i)-97)+this.cipherKey)%26)+97;
+	    int a = (word.charAt(i)-97)*this.keyA;
+	    int b = a+this.keyB;
+	    int k = (b%26)+97;
 	    result += Character.toString((char)k);
-	    }*/
+	}
 	return result;
     }
 
