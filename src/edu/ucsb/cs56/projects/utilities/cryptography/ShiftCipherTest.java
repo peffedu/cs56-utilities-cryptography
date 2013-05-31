@@ -40,11 +40,23 @@ public class ShiftCipherTest{
     /** Test encryption 2*/
     @Test
     public void test2(){
-	int cipherKey = 22;
-	ShiftCipher s = new ShiftCipher(cipherKey);
+	int keyA = 1;
+	int keyB = 3;
+	AffineCipher a = new AffineCipher(keyA, keyB);
 	String word = "hello";
-	assertEquals("dahhk",s.encrypt(word));
+	assertEquals("khoor",a.encrypt(word));
     }
+
+    /** Test encryption 3 with upper cases*/
+    @Test
+    public void test3(){
+	int keyA = 1;
+	int keyB = 3;
+	AffineCipher a = new AffineCipher(keyA, keyB);
+	String word = "HELLO";
+	assertEquals("khoor",a.encrypt(word));
+    }
+
 
     /** Test illegal argument exception word 1*/
     @Test(expected=IllegalArgumentException.class)
