@@ -34,7 +34,7 @@
     <delete dir="build" quiet="true"/>
   </target>
   
-  <target name="javadoc" depends="compile">
+  <target name="javadoc" depends="compile" description="generate the javadocs">
     <delete dir="javadoc" quiet="true"/>
     <javadoc destdir="javadoc" author="true" version="true" use="true">
       <fileset dir="src" includes="**/*.java"/>
@@ -52,7 +52,7 @@
     <echo>Javadoc deployed to ${javadocURL}</echo>
   </target>
   
-  <target name="test" depends="compile">
+  <target name="test" depends="compile" description="run junit tests">
     <junit haltonerror="no" haltonfailure="no">
       <classpath>
 	<pathelement location="lib/junit-4.8.2.jar"/>
