@@ -101,7 +101,7 @@ public class ShiftCipherTest{
     public void testIllegalArgumentExceptionKey3(){
 	int cipherKey = 17;
 	ShiftCipher s = new ShiftCipher(cipherKey);
-	int newCipherKey = 0;
+	int newCipherKey = -1;
 	s.setCipherKey(newCipherKey);
     }
 
