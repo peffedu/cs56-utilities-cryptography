@@ -19,6 +19,7 @@ public class VigenereCipher {
        @param cipherKey The String to use when encrypting plaintext.
      */
     public VigenereCipher(String cipherKey) {
+	if (cipherKey == null || cipherKey.length() == 0) throw new IllegalArgumentException();
 	this.cipherKey = cipherKey.toLowerCase();
     }
 
@@ -27,6 +28,7 @@ public class VigenereCipher {
        @param cipherKey The String to use when encrypting plaintext.
      */
     public void setCipherKey(String cipherKey) {
+	if (cipherKey == null || cipherKey.length() == 0) throw new IllegalArgumentException();
 	this.cipherKey = cipherKey.toLowerCase();
     }
 
@@ -39,8 +41,11 @@ public class VigenereCipher {
 
     /**
        Encrypts the given plaintext using the Vigenere Cipher. This is done by matching up the cipher key with the plaintext and applying the Shift Cipher to each letter in the plaintext, using the corresponding cipher key letter as the shift.
+       @param input The String that represents the plaintext to be encrypted.
      */
-    public String encrypt(String plaintext) {
+    public String encrypt(String input) {
+	// if (plaintext == null) throw new IllegalArgumentException();
+	String plaintext = input.toLowerCase();
 	String cipherText = "";
 	ShiftCipher s = new ShiftCipher();
 	
