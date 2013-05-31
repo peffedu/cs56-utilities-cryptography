@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
    @author Miranda Aperghis
    @author Callum Steele
    @version Project, CS56, S13, 05/29/2013
+   @see AffineCipher
 */
 public class AffineCipherTest{
 
@@ -52,6 +53,28 @@ public class AffineCipherTest{
 	String word = "hello";
 	assertEquals("khoor",a.encrypt(word));
     }
+
+    /** Test encryption 3*/
+    @Test
+    public void test3(){
+	int keyA = 9;
+	int keyB = 23;
+	AffineCipher a = new AffineCipher(keyA, keyB);
+	String word = "miranda";
+	assertEquals("bruxkyx",a.encrypt(word));
+    }
+
+    /** Test encryption 4*/
+    @Test
+    public void test4(){
+	int keyA = 9;
+	int keyB = 23;
+	AffineCipher a = new AffineCipher(keyA, keyB);
+	String word = "HELLO";
+	assertEquals("ihsst",a.encrypt(word));
+    }
+
+
 
     /** Test illegal argument exception word 1*/
     @Test(expected=IllegalArgumentException.class)
