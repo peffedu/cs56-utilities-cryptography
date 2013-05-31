@@ -154,4 +154,22 @@ public class VigenereCipherTest {
 	VigenereCipher v= new VigenereCipher("k");
         v.encrypt("hello4");
     }
+
+    /**
+       Test illegal argument exception for VigenereCipher.encrypt()
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void test_IllegalArgumentExceptionEncrypt3() {
+	VigenereCipher v= new VigenereCipher("k");
+        v.encrypt("");
+    }
+
+    /**
+       Test illegal argument exception for VigenereCipher.encrypt()
+     */
+    @Test(expected=IllegalArgumentException.class)
+    public void test_IllegalArgumentExceptionEncrypt4() {
+	VigenereCipher v= new VigenereCipher("k");
+        v.encrypt(null);
+    }
 }

@@ -44,7 +44,7 @@ public class VigenereCipher {
        @param input The String that represents the plaintext to be encrypted.
      */
     public String encrypt(String input) {
-	// if (plaintext == null) throw new IllegalArgumentException();
+	if (input == null || input.length() == 0) throw new IllegalArgumentException();
 	String plaintext = input.toLowerCase();
 	String cipherText = "";
 	ShiftCipher s = new ShiftCipher();
