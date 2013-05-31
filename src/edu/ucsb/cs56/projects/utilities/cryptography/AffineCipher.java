@@ -30,7 +30,7 @@ public class AffineCipher{
        @return cipher key integer
     */
     public int getKeyA(){
-	return -42;//STUB
+	return this.keyA;
     }
 
     /**
@@ -38,7 +38,7 @@ public class AffineCipher{
        @return cipher key integer
     */
     public int getKeyB(){
-	return -42;//STUB
+	return this.keyB;
     }
 
     /** 
