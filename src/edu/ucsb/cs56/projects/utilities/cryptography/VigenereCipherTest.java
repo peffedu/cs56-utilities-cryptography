@@ -36,7 +36,7 @@ public class VigenereCipherTest {
      */
     @Test
     public void test_encrypt1() {
-	VigenereCipher v = new VigenereCipher("test");
+	VigenereCipher v = new VigenereCipher("a");
 	assertEquals("random", v.encrypt("random"));
     }
     
@@ -45,7 +45,16 @@ public class VigenereCipherTest {
      */
     @Test
     public void test_encrypt2() {
-	VigenereCipher v = new VigenereCipher("word");
+	VigenereCipher v = new VigenereCipher("aaaaaaaaaaa");
 	assertEquals("random", v.encrypt("random"));
+    }
+
+    /**
+       Test case for VigenereCipher.encrypt()
+    */
+    @Test
+    public void test_encrypt3() {
+	VigenereCipher v= new VigenereCipher("bbbb");
+	assertEquals("bbbbb", v.encrypt("aaaaa"));
     }
 }
