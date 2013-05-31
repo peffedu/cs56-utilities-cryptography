@@ -2,8 +2,8 @@ package edu.ucsb.cs56.projects.utilities.cryptography;
 
 /**
    A class to implement the Shift Cipher.
-   @author Callum Steele
    @author Miranda Aperghis
+   @author Callum Steele
    @version Project CS56, S13, 05/29/2013
  */
 public class ShiftCipher{
@@ -19,6 +19,7 @@ public class ShiftCipher{
        @param cipherKey an integer that is used to encrypt the plaintext
     */
     public ShiftCipher(int cipherKey){
+	if(cipherKey<0 || cipherKey>26) throw new IllegalArgumentException();
 	this.cipherKey = cipherKey;
     }
 
@@ -27,7 +28,7 @@ public class ShiftCipher{
        @return cipher key integer
     */
     public int getCipherKey(){
-	return -42; //STUB
+	return this.cipherKey;
     }
 
     /** 
@@ -35,6 +36,7 @@ public class ShiftCipher{
 	@param cipherKey an integer is used to encrypt the plaintext
     */
     public void setCipherKey(int cipherKey){
+	if(cipherKey<0 || cipherKey>26) throw new IllegalArgumentException();
 	this.cipherKey = cipherKey;
     }
 
@@ -45,7 +47,15 @@ public class ShiftCipher{
        @return the ciphertext (the encrypted plaintext)
     */
     public String encrypt(String word){
-	return "STUB"; //STUB
+	if(word == null) throw new IllegalArgumentException();
+	String result = "";
+	for(int i=0; i<word.length(); i++){
+	    if(word.charAt(i)<97 || word.charAt(i)>122)
+		throw new IllegalArgumentException();
+	    int k = (((word.charAt(i)-97)+this.cipherKey)%26)+97;
+	    result += Character.toString((char)k);
+	}
+	return result;
     }
 
 }
