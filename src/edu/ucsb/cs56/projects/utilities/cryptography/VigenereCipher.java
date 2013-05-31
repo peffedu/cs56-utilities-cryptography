@@ -41,14 +41,14 @@ public class VigenereCipher {
        Encrypts the given plaintext using the Vigenere Cipher. This is done by matching up the cipher key with the plaintext and applying the Shift Cipher to each letter in the plaintext, using the corresponding cipher key letter as the shift.
      */
     public String encrypt(String plaintext) {
-	String cipherText = null;
-	//ShiftCipher s = new ShiftCipher();
+	String cipherText = "";
+	ShiftCipher s = new ShiftCipher();
 	
 	for (int i = 0; i < plaintext.length(); i++) {
 	    // sets the cipher key for the Shift Cipher
-	    //s.setCipherKey(cipherKey.charAt(i % cipherKey.length()));
+	    s.setCipherKey(cipherKey.charAt(i % cipherKey.length()) - 97);
 	    // applies the Shift Cipher to the next character
-	    //cipherText = cipherText + s.encrypt(plaintext.charAt(i));
+	    cipherText = cipherText + s.encrypt(plaintext.substring(i, i+1));
 	}
 	
 	return cipherText;
