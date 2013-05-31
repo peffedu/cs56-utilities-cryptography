@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.projects.utilities.Cryptography;
+package edu.ucsb.cs56.projects.utilities.cryptography;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

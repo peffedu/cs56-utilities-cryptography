@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.projects.utilities.Cryptography;
+package edu.ucsb.cs56.projects.utilities.cryptography;
 
 /**
    A class to implement the Vigenere Cipher.
