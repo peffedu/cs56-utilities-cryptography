@@ -35,9 +35,10 @@ public class CryptographyGUI
      */
     public void go () {
 	frame = new JFrame();
-	frame.setSize(640,480);
+	frame.setSize(300,180);
 	frame.setTitle("Cryptography Interface");
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.setResizable(false);
 
 	buttonPanel = new JPanel();
 
