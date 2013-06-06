@@ -29,9 +29,9 @@ public class CryptographyGUI
 
     JFrame frame;
     JButton shift, vigenere, affine, mode;
-    JPanel buttonPanel, cipherButtonPanel, modeButtonPanel, textFieldPanel;
+    JPanel buttonPanel, cipherButtonPanel, modeButtonPanel, textFieldPanel, inputTextPanel, inputKeyTextPanel;
     JTextField input, keyInput;
-    JLabel output;
+    JLabel output, inputText, inputKeyText;
 
     boolean encryptMode = true;
 
@@ -59,10 +59,24 @@ public class CryptographyGUI
 
 	textFieldPanel = new JPanel();
 	textFieldPanel.setLayout(new BoxLayout(textFieldPanel, BoxLayout.Y_AXIS));
+
+	inputTextPanel = new JPanel();
+	inputTextPanel.setLayout(new BoxLayout(inputTextPanel, BoxLayout.X_AXIS));
+
+	inputText = new JLabel();
+	inputText.setText("Plaintext: ");
 	input = new JTextField();
+	inputTextPanel.add(inputText);
+	inputTextPanel.add(input);
+
+	inputKeyText = new JLable();
+	inputKeyText.setText("Key(s): ");
 	keyInput = new JTextField();
-	textFieldPanel.add(input);
-	textFieldPanel.add(keyInput);
+	inputKeyTextPanel.add(keyInputText);
+	inputKeyTextPanel.add(keyInput);
+
+	textFieldPanel.add(inputText);
+	textFieldPanel.add(inputKeyTextPanel);
 
 	cipherButtonPanel = new JPanel();
 	cipherButtonPanel.setLayout(new BoxLayout(cipherButtonPanel, BoxLayout.X_AXIS));
