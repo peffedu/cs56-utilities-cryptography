@@ -30,4 +30,20 @@ public class MathUtilTest{
 	assertEquals(true,m.coPrime(b,c));
     }
 
+    /** Test multiplicative inverse */
+    @Test
+    public void testModInverse(){
+	int a = 5;
+	MathUtil m = new MathUtil();
+	assertEquals(21,m.modInverse(a));
+    }
+
+    /** Test multiplicative inverse 2 */
+    @Test
+    public void testModInverse2(){
+	int a = 9;
+	MathUtil m = new MathUtil();
+	assertEquals(3,m.modInverse(a));
+    }
+
 }

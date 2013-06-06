@@ -1,5 +1,7 @@
 package edu.ucsb.cs56.projects.utilities.cryptography;
 
+import java.math.BigInteger;
+
 /**
  * A class to implement a collection of utility methods for mathematical
  * operations.
@@ -7,6 +9,17 @@ package edu.ucsb.cs56.projects.utilities.cryptography;
  @version Project CS56, S13, 06/06/2013
  * */
 public class MathUtil {
+
+    /**
+       Find the multiplicative inverse of the two numbers
+       @param a first integer
+       @param b second integer
+       @return multiplicative inverse (integer)
+    */
+    public static final int modInverse(int a){
+	BigInteger bigR = BigInteger.valueOf(a).modInverse(BigInteger.valueOf(26));
+	return bigR.intValue();
+    }
 
     /**
        Find if two numbers are coprime, gcd(a,b)=1
@@ -49,4 +62,5 @@ public class MathUtil {
 	}
 	return a;
     }
+
 }

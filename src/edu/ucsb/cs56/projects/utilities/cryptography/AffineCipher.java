@@ -85,9 +85,19 @@ public class AffineCipher{
        @return the plaintext (the decrypted ciphertext)
     */
     public String decrypt(String word){
-	String result = " ";
+	String result = "";
+	String wordLower = word.toLowerCase();
 	if(MathUtil.coPrime(this.keyA, 26)==false)
-	    throw new IllegalArgumentException("Cannot decrypt if keyA and 26 is not coprime");
+	    throw new IllegalArgumentException();
+	for(int i=0; i<wordLower.length(); i++){
+	    if(wordLower.charAt(i)<97 || wordLower.charAt(i)>122)
+		throw new IllegalArgumentException();
+	    int a = (wordLower.charAt(i)-97)-this.keyB;
+	    if(a<0)a+=26;
+	    int b = a*MathUtil.modInverse(this.keyA);
+	    int k = (b%26)+97;
+	    result += Character.toString((char)k);
+	}
 	return result;
     }
 

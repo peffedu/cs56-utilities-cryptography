@@ -131,8 +131,8 @@ public class AffineCipherTest{
         int keyA = 1;
 	int keyB = 3;
 	AffineCipher a = new AffineCipher(keyA, keyB);
-	String word = "hello";
-	assertEquals("ebiil",a.decrypt(word));
+	String word = "khoor";
+	assertEquals("hello",a.decrypt(word));
     }
 
     /** Test decryption word 2*/
@@ -141,8 +141,8 @@ public class AffineCipherTest{
         int keyA = 5;
 	int keyB = 22;
 	AffineCipher a = new AffineCipher(keyA, keyB);
-	String word = "hello";
-	assertEquals("xmddo",a.decrypt(word));
+	String word = "ekdwjlw";
+	assertEquals("miranda",a.decrypt(word));
     }
 
     /** Test decryption word 3*/
@@ -151,8 +151,8 @@ public class AffineCipherTest{
         int keyA = 21;
 	int keyB = 13;
 	AffineCipher a = new AffineCipher(keyA, keyB);
-	String word = "mIrAnDa";
-	assertEquals("vbunacn",a.decrypt(word));
+	String word = "fZgNaYn";
+	assertEquals("miranda",a.decrypt(word));
     }
 
 }
