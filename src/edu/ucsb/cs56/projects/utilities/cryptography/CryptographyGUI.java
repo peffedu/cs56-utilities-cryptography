@@ -134,7 +134,7 @@ public class CryptographyGUI
 			if (encryptMode)
 			    cipherText = affineCipher.encrypt(plainText);
 			else 
-			    ;//cipherText = affineCipher.decrypt(plainText);
+			    cipherText = affineCipher.decrypt(plainText);
 		    
 			// puts result in the output label
 			output.setText(cipherText);
