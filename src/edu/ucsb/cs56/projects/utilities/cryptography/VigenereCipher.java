@@ -29,6 +29,10 @@ public class VigenereCipher {
      */
     public void setCipherKey(String cipherKey) {
 	if (cipherKey == null || cipherKey.length() == 0) throw new IllegalArgumentException();
+	for (int i = 0; i < cipherKey.length(); i++) {
+	    if(cipherKey.charAt(i)<97 || cipherKey.charAt(i)>122)
+		throw new IllegalArgumentException();
+	}
 	this.cipherKey = cipherKey.toLowerCase();
     }
 
