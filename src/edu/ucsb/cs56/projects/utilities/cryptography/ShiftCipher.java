@@ -68,6 +68,6 @@ public class ShiftCipher{
     */
     public String decrypt(String word){
 	String result = "STUB"; //STUB
-	return stub;
+	return result;
     }
 }

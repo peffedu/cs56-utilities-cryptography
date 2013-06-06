@@ -31,7 +31,7 @@ public class ShiftCipherTest{
 
     /** Test encryption 1 */
     @Test
-    public void test1(){
+    public void testEncryptShift1(){
 	int cipherKey = 4;
 	ShiftCipher s = new ShiftCipher(cipherKey);
 	String word = "hello";
@@ -40,22 +40,20 @@ public class ShiftCipherTest{
 
     /** Test encryption 2*/
     @Test
-    public void test2(){
-	int keyA = 1;
-	int keyB = 3;
-	AffineCipher a = new AffineCipher(keyA, keyB);
-	String word = "hello";
-	assertEquals("khoor",a.encrypt(word));
+    public void testEncryptShift2(){
+	int cipherKey = 13;
+	ShiftCipher s = new ShiftCipher(cipherKey);
+	String word = "miranda";
+	assertEquals("zvenagn",s.encrypt(word));	
     }
 
     /** Test encryption 3 with upper cases*/
     @Test
-    public void test3(){
-	int keyA = 1;
-	int keyB = 3;
-	AffineCipher a = new AffineCipher(keyA, keyB);
+    public void testEncryptShift3(){
+	int cipherKey = 4;
+	ShiftCipher s = new ShiftCipher(cipherKey);
 	String word = "HELLO";
-	assertEquals("khoor",a.encrypt(word));
+	assertEquals("lipps",s.encrypt(word));
     }
 
 
@@ -126,6 +124,5 @@ public class ShiftCipherTest{
 	int newCipherKey = 45;
 	s.setCipherKey(newCipherKey);
     }
-
     
 }
