@@ -67,7 +67,17 @@ public class ShiftCipher{
        @return the plaintext (the decrypted ciphertext)
     */
     public String decrypt(String word){
-	String result = "STUB"; //STUB
+	if(word == null) throw new IllegalArgumentException();
+	String result = "";
+	String wordLower = word.toLowerCase();
+	for(int i=0; i<wordLower.length(); i++){
+	    if(wordLower.charAt(i)<97 || wordLower.charAt(i)>122)
+		throw new IllegalArgumentException();
+	    int k = (wordLower.charAt(i)-97)-this.cipherKey;
+	    if(k<0) k+=26;
+	    k += 97;
+	    result += Character.toString((char)k);
+	}
 	return result;
     }
 }

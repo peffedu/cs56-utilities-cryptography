@@ -70,7 +70,7 @@ public class ShiftCipherTest{
     public void testDecryptShift2(){
 	int cipherKey = 13;
 	ShiftCipher s = new ShiftCipher(cipherKey);
-	String word = "zVeNaGn";
+	String word = "zVeNaQn";
 	assertEquals("miranda",s.decrypt(word));
     }
 
