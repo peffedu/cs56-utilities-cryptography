@@ -2,6 +2,7 @@ package edu.ucsb.cs56.projects.utilities.cryptography;
 
 /**
    A class to implement the Shift Cipher.
+   The class can encrypt a plaintext work and decrypt a ciphertext word.
    @author Miranda Aperghis
    @author Callum Steele
    @version Project CS56, S13, 05/29/2013
@@ -59,4 +60,14 @@ public class ShiftCipher{
 	return result;
     }
 
+    /**
+       Decryption algorithm for the shift cipher.
+       Takes a word and then shift the characters by a given number of places the opposite way through the alphabet, defined by the cipherKey.
+       @param word a ciphertext word that is to be decrypted
+       @return the plaintext (the decrypted ciphertext)
+    */
+    public String decrypt(String word){
+	String result = "STUB"; //STUB
+	return stub;
+    }
 }
