@@ -115,6 +115,44 @@ public class AffineCipherTest{
 	String cipher = a.encrypt(word);
     }
 
-   
-    
+    /** Test illegal argument exception co prime key*/
+    @Test(expected=IllegalArgumentException.class)
+    public void testIllegalArgumentExceptionCoPrime(){
+        int keyA = 4;
+	int keyB = 7;
+	AffineCipher a = new AffineCipher(keyA, keyB);
+	String word = "hello";
+	String cipher = a.decrypt(word);
+    }
+
+    /** Test decryption word 1*/
+    @Test
+    public void testDecryptAffine1(){
+        int keyA = 1;
+	int keyB = 3;
+	AffineCipher a = new AffineCipher(keyA, keyB);
+	String word = "hello";
+	assertEquals("ebiil",a.decrypt(word));
+    }
+
+    /** Test decryption word 2*/
+    @Test
+    public void testDecryptAffine2(){
+        int keyA = 5;
+	int keyB = 22;
+	AffineCipher a = new AffineCipher(keyA, keyB);
+	String word = "hello";
+	assertEquals("xmddo",a.decrypt(word));
+    }
+
+    /** Test decryption word 3*/
+    @Test
+    public void testDecryptAffine3(){
+        int keyA = 21;
+	int keyB = 13;
+	AffineCipher a = new AffineCipher(keyA, keyB);
+	String word = "mIrAnDa";
+	assertEquals("vbunacn",a.decrypt(word));
+    }
+
 }

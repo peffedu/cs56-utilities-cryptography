@@ -85,7 +85,9 @@ public class AffineCipher{
        @return the plaintext (the decrypted ciphertext)
     */
     public String decrypt(String word){
-	String result = "STUB";//stub
+	String result = " ";
+	if(MathUtil.coPrime(this.keyA, 26)==false)
+	    throw new IllegalArgumentException("Cannot decrypt if keyA and 26 is not coprime");
 	return result;
     }
 
