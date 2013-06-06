@@ -93,7 +93,7 @@ public class CryptographyGUI
 		    if (encryptMode)
 			cipherText = shiftCipher.encrypt(plainText);
 		    else
-			;//cipherText = shiftCipher.decrypt(plainText);
+			cipherText = shiftCipher.decrypt(plainText);
 		    
 		    output.setText(cipherText);
 		}
