@@ -128,7 +128,7 @@ public class CryptographyGUI
 		    if (encryptMode)
 			cipherText = vigenereCipher.encrypt(plainText);
 		    else
-			;//cipherText = vigenereCipher.decrypt(plainText);
+			cipherText = vigenereCipher.decrypt(plainText);
 
 		    output.setText(cipherText);
 		}
