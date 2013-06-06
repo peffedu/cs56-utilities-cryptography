@@ -16,7 +16,7 @@ Affine Cipher:
 
 Vigenere Cipher:
       Takes a String s as the key.
-      Encrypts the plaintext by applying a the Shift Cipher to each character in the plaintext using the associated letter in the key as the key.
+      Encrypts the plaintext by applying the Shift Cipher to each character in the plaintext using the associated letter in the key as the key.
 
       e.g.
       plaintext = "random"
