@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import java.awt.event.*;
 import javax.swing.BoxLayout;
+import javax.swing.JOptionPane;
 
 /**
    A class to implement the Cryptography GUI.
@@ -97,17 +98,22 @@ public class CryptographyGUI
 		    plainText = input.getText();
 
 		    // get key from key text field and set it as key in cipher object
-		    keyA = Integer.parseInt(keyInput.getText());
-		    shiftCipher.setCipherKey(keyA);
+		    try {
+			keyA = Integer.parseInt(keyInput.getText());
+			shiftCipher.setCipherKey(keyA);
 		    
-		    // checks if encrypting or decrypting
-		    if (encryptMode)
-			cipherText = shiftCipher.encrypt(plainText);
-		    else
-			cipherText = shiftCipher.decrypt(plainText);
-		    
-		    // puts result in the output label
-		    output.setText(cipherText);
+			// checks if encrypting or decrypting
+			if (encryptMode)
+			    cipherText = shiftCipher.encrypt(plainText);
+			else
+			    cipherText = shiftCipher.decrypt(plainText);
+			
+			// puts result in the output label
+			output.setText(cipherText);
+		    } catch (Exception ex) {
+			// create popup
+			messagePopUp("Incorrect input for Shift Cipher. Refer to README for correct input format.", "Shift Cipher Input Error");
+		    }
 		}
 	    });
 	affine = new JButton("Affine Cipher");
@@ -117,20 +123,25 @@ public class CryptographyGUI
 		    plainText = input.getText();
 
 		    // gets keys from key text field and sets as the keys in cipher object
-		    key = keyInput.getText();
-		    keyA = Integer.parseInt(key.substring(0, key.indexOf(' ')));
-		    keyB = Integer.parseInt(key.substring(key.indexOf(' ') + 1));
-		    affineCipher.setKeyA(keyA);
-		    affineCipher.setKeyB(keyB);
+		    try {
+			key = keyInput.getText();
+			keyA = Integer.parseInt(key.substring(0, key.indexOf(' ')));
+			keyB = Integer.parseInt(key.substring(key.indexOf(' ') + 1));
+			affineCipher.setKeyA(keyA);
+			affineCipher.setKeyB(keyB);
 		    
-		    // checks if encrypting or decrypting
-		    if (encryptMode)
-			cipherText = affineCipher.encrypt(plainText);
-		    else 
-			;//cipherText = affineCipher.decrypt(plainText);
+			// checks if encrypting or decrypting
+			if (encryptMode)
+			    cipherText = affineCipher.encrypt(plainText);
+			else 
+			    ;//cipherText = affineCipher.decrypt(plainText);
 		    
-		    // puts result in the output label
-		    output.setText(cipherText);
+			// puts result in the output label
+			output.setText(cipherText);
+		    } catch (Exception ex) {
+			// create popup
+			messagePopUp("Incorrect input for Affine Cipher. Refer to README for correct input format.", "Affine Cipher Input Error");
+		    }
 		}
 	    });
 	vigenere = new JButton("Vigenere Cipher");
@@ -140,17 +151,22 @@ public class CryptographyGUI
 		    plainText = input.getText();
 
 		    // gets key from key text field and sets as the key in cipher object
-		    key = keyInput.getText();
-		    vigenereCipher.setCipherKey(key);
-		    
-		    // checks if encrypting or decrypting
-		    if (encryptMode)
-			cipherText = vigenereCipher.encrypt(plainText);
-		    else
-			cipherText = vigenereCipher.decrypt(plainText);
-
-		    // puts result in the output label
-		    output.setText(cipherText);
+		    try {
+			key = keyInput.getText();
+			vigenereCipher.setCipherKey(key);
+			
+			// checks if encrypting or decrypting
+			if (encryptMode)
+			    cipherText = vigenereCipher.encrypt(plainText);
+			else
+			    cipherText = vigenereCipher.decrypt(plainText);
+			
+			// puts result in the output label
+			output.setText(cipherText);
+		    } catch (Exception ex) {
+			// create popup
+			messagePopUp("Incorrect input for Vigenere Cipher. Refer to README for correct input format.", "Vigenere Cipher Input Error");
+		    }
 		}
 	    });
 
@@ -198,4 +214,7 @@ public class CryptographyGUI
 	frame.setVisible(true);
     }
 
+    public void messagePopUp(String message, String title) {
+	JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
+    }
 }
