@@ -58,4 +58,25 @@ public class VigenereCipher {
 	
 	return cipherText;
     }
+
+    /**
+       Decrypts the given ciphertext using the Vigenere Cipher. This is done by encrypting the ciphertext using the inverse of the key.
+       @param input The string that represents the ciphertext to be decrypted.
+    */
+    public String decrypt(String input) {
+	if (input == null || input.length() == 0) throw new IllegalArgumentException();
+	String ciphertext = input.toLowerCase();
+	String inverseKey = "";
+
+	for (int i = 0; i < cipherKey.length(); i++) {
+	    inverseKey += (char)(((26 - (cipherKey.charAt(i) - 97)) % 26) + 97);
+	}
+
+	String originalKey = getCipherKey();
+	setCipherKey(inverseKey);
+	String plaintext = encrypt(ciphertext);
+	setCipherKey(originalKey);
+	
+	return plaintext;
+    }
 }
