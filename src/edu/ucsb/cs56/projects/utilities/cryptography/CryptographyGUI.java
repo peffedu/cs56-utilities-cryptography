@@ -62,20 +62,21 @@ public class CryptographyGUI
 
 	inputTextPanel = new JPanel();
 	inputTextPanel.setLayout(new BoxLayout(inputTextPanel, BoxLayout.X_AXIS));
-
 	inputText = new JLabel();
 	inputText.setText("Plaintext: ");
 	input = new JTextField();
 	inputTextPanel.add(inputText);
 	inputTextPanel.add(input);
 
-	inputKeyText = new JLable();
+	inputKeyTextPanel = new JPanel();
+	inputKeyTextPanel.setLayout(new BoxLayout(inputKeyTextPanel, BoxLayout.X_AXIS));
+	inputKeyText = new JLabel();
 	inputKeyText.setText("Key(s): ");
 	keyInput = new JTextField();
-	inputKeyTextPanel.add(keyInputText);
+	inputKeyTextPanel.add(inputKeyText);
 	inputKeyTextPanel.add(keyInput);
 
-	textFieldPanel.add(inputText);
+	textFieldPanel.add(inputTextPanel);
 	textFieldPanel.add(inputKeyTextPanel);
 
 	cipherButtonPanel = new JPanel();
@@ -88,7 +89,11 @@ public class CryptographyGUI
 
 		    keyA = Integer.parseInt(keyInput.getText());
 		    shiftCipher.setCipherKey(keyA);
-		    cipherText = shiftCipher.encrypt(plainText);
+		    
+		    if (encryptMode)
+			cipherText = shiftCipher.encrypt(plainText);
+		    else
+			;//cipherText = shiftCipher.decrypt(plainText);
 		    
 		    output.setText(cipherText);
 		}
@@ -103,7 +108,11 @@ public class CryptographyGUI
 		    keyB = Integer.parseInt(key.substring(key.indexOf(' ') + 1));
 		    affineCipher.setKeyA(keyA);
 		    affineCipher.setKeyB(keyB);
-		    cipherText = affineCipher.encrypt(plainText);
+		    
+		    if (encryptMode)
+			cipherText = affineCipher.encrypt(plainText);
+		    else 
+			;//cipherText = affineCipher.decrypt(plainText);
 		    
 		    output.setText(cipherText);
 		}
@@ -115,8 +124,12 @@ public class CryptographyGUI
 
 		    key = keyInput.getText();
 		    vigenereCipher.setCipherKey(key);
-		    cipherText = vigenereCipher.encrypt(plainText);
 		    
+		    if (encryptMode)
+			cipherText = vigenereCipher.encrypt(plainText);
+		    else
+			;//cipherText = vigenereCipher.decrypt(plainText);
+
 		    output.setText(cipherText);
 		}
 	    });
