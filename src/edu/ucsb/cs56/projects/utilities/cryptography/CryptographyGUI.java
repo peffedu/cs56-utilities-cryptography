@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
+import java.awt.event.*;
 
 /**
    A class to implement the Cryptography GUI.
@@ -16,6 +17,11 @@ import java.awt.BorderLayout;
 
 public class CryptographyGUI
 {
+    
+    ShiftCipher shiftCipher = null;
+    AffineCipher affineCipher = null;
+    VigenereCipher vigenereCipher = null;
+    String inputText = null;
 
     JFrame frame;
     JButton shift, vigenere, affine;
@@ -28,12 +34,17 @@ public class CryptographyGUI
      */
     public static void main (String[] args) {
 	CryptographyGUI cryptoGUI = new CryptographyGUI();
+
 	cryptoGUI.go();
     }
 
     /** Function that populates and creates the GUI.
      */
     public void go () {
+	shiftCipher = new ShiftCipher();
+	affineCipher = new AffineCipher();
+	vigenereCipher = new VigenereCipher();
+
 	frame = new JFrame();
 	frame.setSize(300,180);
 	frame.setTitle("Cryptography Interface");
@@ -43,11 +54,24 @@ public class CryptographyGUI
 	buttonPanel = new JPanel();
 
         shift = new JButton("Shift Cipher");
-	// listener
+	shift.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    inputText = input.getText();
+		    System.out.println("Shift button pressed: " + inputText);
+		}
+	    });
 	affine = new JButton("Affine Cipher");
-	// listener
+	affine.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    System.out.println("Affine button pressed.");
+		}
+	    });
 	vigenere = new JButton("Vigenere Cipher");
-	// listener
+	vigenere.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		    System.out.println("Vigenere button pressed.");
+		}
+	    });
 
 	buttonPanel.add(shift);
 	buttonPanel.add(affine);
