@@ -79,4 +79,14 @@ public class AffineCipher{
 	return result;
     }
 
+    /**
+       Decryption algorithm for the affine cipher.
+       @param word a ciphertext word the is to be decrypted
+       @return the plaintext (the decrypted ciphertext)
+    */
+    public String decrypt(String word){
+	String result = "STUB";//stub
+	return result;
+    }
+
 }
