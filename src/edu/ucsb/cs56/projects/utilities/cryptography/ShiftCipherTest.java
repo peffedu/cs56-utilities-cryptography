@@ -44,7 +44,7 @@ public class ShiftCipherTest{
 	int cipherKey = 13;
 	ShiftCipher s = new ShiftCipher(cipherKey);
 	String word = "miranda";
-	assertEquals("zvenagn",s.encrypt(word));	
+	assertEquals("zvenaqn",s.encrypt(word));	
     }
 
     /** Test encryption 3 with upper cases*/
@@ -56,6 +56,23 @@ public class ShiftCipherTest{
 	assertEquals("lipps",s.encrypt(word));
     }
 
+    /** Test decryption 1*/
+    @Test
+    public void testDecryptShift1(){
+	int cipherKey = 4;
+	ShiftCipher s = new ShiftCipher(cipherKey);
+	String word = "lipps";
+	assertEquals("hello",s.decrypt(word));
+    }
+
+    /** Test decryption 2*/
+    @Test
+    public void testDecryptShift2(){
+	int cipherKey = 13;
+	ShiftCipher s = new ShiftCipher(cipherKey);
+	String word = "zVeNaGn";
+	assertEquals("miranda",s.decrypt(word));
+    }
 
     /** Test illegal argument exception word 1*/
     @Test(expected=IllegalArgumentException.class)
