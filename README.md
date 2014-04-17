@@ -4,7 +4,7 @@ cs56-utilities-Cryptography
 project history
 ===============
 ```
- N/A
+ N/A 
 ```
 
 Implementation of 3 different types of ciphers:
