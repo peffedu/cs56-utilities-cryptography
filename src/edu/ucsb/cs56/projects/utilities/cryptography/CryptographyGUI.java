@@ -32,8 +32,8 @@ public class CryptographyGUI
     String key;
 
     JFrame frame;
-    JButton shift, vigenere, affine, bifid, mode;
-    JPanel buttonPanel, cipherButtonPanel, modeButtonPanel, textFieldPanel, inputTextPanel, inputKeyTextPanel;
+    JButton shift, vigenere, affine, bifid, mode, info;
+    JPanel buttonPanel, cipherButtonPanel, modeButtonInfoPanel, textFieldPanel, inputTextPanel, inputKeyTextPanel;
     JTextField input, keyInput;
     JLabel output, inputText, inputKeyText;
 
@@ -116,7 +116,10 @@ public class CryptographyGUI
                 output.setText(cipherText);
                 } catch (Exception ex) {
                 // create popup
-                messagePopUp("Incorrect input for Shift Cipher. Refer to README for correct input format.", "Shift Cipher Input Error");
+                messagePopUp("Incorrect input for Shift Cipher.\nPlaintext is " +
+                        "a string and can't have spaces or non-alphabetic " +
+                        "characters.\nKey should contain a single integer within " +
+                        "the range 0 to 25.\n", "Shift Cipher Input Error");
                 }
             }
             });
@@ -144,7 +147,11 @@ public class CryptographyGUI
                 output.setText(cipherText);
                 } catch (Exception ex) {
                 // create popup
-                messagePopUp("Incorrect input for Affine Cipher. Refer to README for correct input format.", "Affine Cipher Input Error");
+                messagePopUp("Incorrect input for Affine Cipher.\nPlaintext " +
+                        "input is a String with only letters.\nKey takes 2 integers " +
+                        "(a and b) separated by a single space the first \ninteger " +
+                        "being within the range 0 to 25 and the second greater than 0.\n" +
+                        "If Decrypting, the second integer must not be a coprime with 26", "Affine Cipher Input Error");
                 }
             }
             });
@@ -169,7 +176,10 @@ public class CryptographyGUI
                 output.setText(cipherText);
                 } catch (Exception ex) {
                 // create popup
-                messagePopUp("Incorrect input for Vigenere Cipher. Refer to README for correct input format.", "Vigenere Cipher Input Error");
+                messagePopUp("Incorrect input for Vigenere Cipher.\nPlaintext " +
+                        "is a String with only letters.\nKey is a String with " +
+                        "only letters.\nSpaces and numbers will cause an exception " +
+                        "to be thrown", "Vigenere Cipher Input Error");
                 }
             }
             });
@@ -194,7 +204,10 @@ public class CryptographyGUI
                     output.setText(cipherText);
                 } catch (Exception ex) {
                     // create popup
-                    messagePopUp("Incorrect input for Bifid Cipher. Refer to README for correct input format.", "Bifid Cipher Input Error");
+                    messagePopUp("Incorrect input for Bifid Cipher.\nPlaintext " +
+                            "input can be any String so long as there are no numbers.\nKey " +
+                            "input can be any String that are not numbers.\nAll spaces and " +
+                            "other characters will be deleted from the String.", "Bifid Cipher Input Error");
                 }
             }
         });
@@ -206,7 +219,8 @@ public class CryptographyGUI
         cipherButtonPanel.add(bifid);
 
         // creates panel for mode button
-        modeButtonPanel = new JPanel();
+        modeButtonInfoPanel = new JPanel();
+
 
         // create mode button and adds listener
         mode = new JButton("Switch to decryption");
@@ -223,14 +237,38 @@ public class CryptographyGUI
             }
             });
 
+        // create info button and adds listener
+        info = new JButton("Info");
+        info.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // checks if encryption or decryption mode
+                messagePopUp("Format of Input for GUI:\n\nGeneral:\n    No spaces " +
+                        "are to be used in the key or plaintext input fields. \nCapital " +
+                        "letters can be used but will be translated to lowercase \nprior " +
+                        "to any cryptographic operation being performed on them.\n\nShift " +
+                        "Cipher:\n    Key text field should contain a single integer " +
+                        "within the range of 0 to 25 inclusive.\n\nAffine Cipher:\n    Key " +
+                        "text field should contain two integers seperated by a single " +
+                        "space, \nwith the first integer being with the range of 0 to 25 " +
+                        "\ninclusive and the second integer being greater than 0. \nIf decrypting, " +
+                        "the additional condition that the first integer must \nnot be a " +
+                        "coprime with 26 also holds.\n\nVigenere Cipher:\n    Key text field " +
+                        "should contain a string of characters.\n\nBifid Cipher:\n    The " +
+                        "plaintext for the Bifid Cipher can contain spaces but no numbers \nand " +
+                        "it will convert all characters to uppercase and remove all \nspaces. " +
+                        "Key text field should contain a string of characters\n","Info message");
+            }
+        });
+
         // adds mode button to mode panel
-        modeButtonPanel.add(mode);
+        modeButtonInfoPanel.add(mode);
+        modeButtonInfoPanel.add(info);
 
         // creates overall button panel and adds cipher/mode button panels
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.add(cipherButtonPanel);
-        buttonPanel.add(modeButtonPanel);
+        buttonPanel.add(modeButtonInfoPanel);
 
         // creates output label
         output = new JLabel();
@@ -245,6 +283,6 @@ public class CryptographyGUI
     }
 
     public void messagePopUp(String message, String title) {
-	JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
+	    JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 }
