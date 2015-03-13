@@ -7,25 +7,25 @@ import static org.junit.Assert.assertEquals;
  A class to test the BifidCipher
  @author Ryan Peffers
  @version CS56, W15, 3/10/2015
-*/
+ */
 public class BifidCipherTest {
 
 
     /** Test constructor and getter */
     @Test
     public void testConstructorAndGetter(){
-        String cipherKey = "hello";
+        String cipherKey = "HELLO";
         BifidCipher s = new BifidCipher(cipherKey);
-        assertEquals("hello",s.getCipherKey());
+        assertEquals("HELLO",s.getCipherKey());
     }
 
     /** Test setter and getter */
     @Test
     public void testSetter(){
-        String cipherKey = "hello";
+        String cipherKey = "HELLO";
         BifidCipher s = new BifidCipher(cipherKey);
-        s.setCipherKey("goodbye");
-        assertEquals("goodbye",s.getCipherKey());
+        s.setCipherKey("goodBYE");
+        assertEquals("goodBYE",s.getCipherKey());
     }
 
     /** Test encryption 1 */
@@ -83,7 +83,7 @@ public class BifidCipherTest {
     }
 
     /** Test illegal argument exception word 2*/
-    @Test(expected=IllegalArgumentException.class)
+    @Test(expected=NullPointerException.class)
     public void testIllegalArgumentExceptionWord2(){
         String cipherKey = "HeLoL";
         BifidCipher s = new BifidCipher(cipherKey);
