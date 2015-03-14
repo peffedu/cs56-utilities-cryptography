@@ -37,12 +37,12 @@ Vigenere Cipher:
 Bifid Cipher:
 	Takes a String s as the key.
 	Encrypts the plaintext by applying the Bifid Cipher to each character using a 25 letter 'key square' example of encryption using this 25 letter 'key square'
-*	   1 2 3 4 5
-*	1| p h q g m
-*	2| e a y l n
-*	3| o f d x k
-*	4| r c v s z
-*	5| w b u t i
+:	   1 2 3 4 5
+:	1| p h q g m
+:	2| e a y l n
+:	3| o f d x k
+:	4| r c v s z
+:	5| w b u t i
 	
 	e.g.
 	plaintext:   defend the east wall of the castle
