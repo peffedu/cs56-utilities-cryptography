@@ -11,16 +11,16 @@ import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 
 /**
-   A class to implement the Cryptography GUI.
-   @author Callum Steele
-   @author Miranda Aperghis
-   @author Ryan Peffers
-   @version Project CS56, W15, 3/10/2015
-*/
+ A class to implement the Cryptography GUI.
+ @author Callum Steele
+ @author Miranda Aperghis
+ @author Ryan Peffers
+ @version Project CS56, W15, 3/10/2015
+ */
 
 public class CryptographyGUI
 {
-    
+
     ShiftCipher shiftCipher = null;
     AffineCipher affineCipher = null;
     VigenereCipher vigenereCipher = null;
@@ -40,18 +40,18 @@ public class CryptographyGUI
     boolean encryptMode = true;
 
     /** Calls the function to create the GUI.
-	@param args Default arguments sent to main.
+     @param args Default arguments sent to main.
      */
     public static void main (String[] args) {
-	    CryptographyGUI cryptoGUI = new CryptographyGUI();
+        CryptographyGUI cryptoGUI = new CryptographyGUI();
 
-	    cryptoGUI.go();
+        cryptoGUI.go();
     }
 
     /** Function that populates and creates the GUI.
      */
     public void go () {
-        // initialise Cipher objects
+        // initialize Cipher objects
         shiftCipher = new ShiftCipher();
         affineCipher = new AffineCipher();
         vigenereCipher = new VigenereCipher();
@@ -103,26 +103,26 @@ public class CryptographyGUI
 
                 // get key from key text field and set it as key in cipher object
                 try {
-                keyA = Integer.parseInt(keyInput.getText());
-                shiftCipher.setCipherKey(keyA);
+                    keyA = Integer.parseInt(keyInput.getText());
+                    shiftCipher.setCipherKey(keyA);
 
-                // checks if encrypting or decrypting
-                if (encryptMode)
-                    cipherText = shiftCipher.encrypt(plainText);
-                else
-                    cipherText = shiftCipher.decrypt(plainText);
+                    // checks if encrypting or decrypting
+                    if (encryptMode)
+                        cipherText = shiftCipher.encrypt(plainText);
+                    else
+                        cipherText = shiftCipher.decrypt(plainText);
 
-                // puts result in the output label
-                output.setText(cipherText);
+                    // puts result in the output label
+                    output.setText(cipherText);
                 } catch (Exception ex) {
-                // create popup
-                messagePopUp("Incorrect input for Shift Cipher.\nPlaintext is " +
-                        "a string and can't have spaces or non-alphabetic " +
-                        "characters.\nKey should contain a single integer within " +
-                        "the range 0 to 25.\n", "Shift Cipher Input Error");
+                    // create popup
+                    messagePopUp("Incorrect input for Shift Cipher.\nPlaintext is " +
+                            "a string and can't have spaces or non-alphabetic " +
+                            "characters.\nKey should contain a single integer within " +
+                            "the range 0 to 25.\n", "Shift Cipher Input Error");
                 }
             }
-            });
+        });
         affine = new JButton("Affine Cipher");
         affine.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -131,30 +131,30 @@ public class CryptographyGUI
 
                 // gets keys from key text field and sets as the keys in cipher object
                 try {
-                key = keyInput.getText();
-                keyA = Integer.parseInt(key.substring(0, key.indexOf(' ')));
-                keyB = Integer.parseInt(key.substring(key.indexOf(' ') + 1));
-                affineCipher.setKeyA(keyA);
-                affineCipher.setKeyB(keyB);
+                    key = keyInput.getText();
+                    keyA = Integer.parseInt(key.substring(0, key.indexOf(' ')));
+                    keyB = Integer.parseInt(key.substring(key.indexOf(' ') + 1));
+                    affineCipher.setKeyA(keyA);
+                    affineCipher.setKeyB(keyB);
 
-                // checks if encrypting or decrypting
-                if (encryptMode)
-                    cipherText = affineCipher.encrypt(plainText);
-                else
-                    cipherText = affineCipher.decrypt(plainText);
+                    // checks if encrypting or decrypting
+                    if (encryptMode)
+                        cipherText = affineCipher.encrypt(plainText);
+                    else
+                        cipherText = affineCipher.decrypt(plainText);
 
-                // puts result in the output label
-                output.setText(cipherText);
+                    // puts result in the output label
+                    output.setText(cipherText);
                 } catch (Exception ex) {
-                // create popup
-                messagePopUp("Incorrect input for Affine Cipher.\nPlaintext " +
-                        "input is a String with only letters.\nKey takes 2 integers " +
-                        "(a and b) separated by a single space the first \ninteger " +
-                        "being within the range 0 to 25 and the second greater than 0.\n" +
-                        "If Decrypting, the second integer must not be a coprime with 26", "Affine Cipher Input Error");
+                    // create popup
+                    messagePopUp("Incorrect input for Affine Cipher.\nPlaintext " +
+                            "input is a String with only letters.\nKey takes 2 integers " +
+                            "(a and b) separated by a single space the first \ninteger " +
+                            "being within the range 0 to 25 and the second greater than 0.\n" +
+                            "If Decrypting, the second integer must not be a coprime with 26", "Affine Cipher Input Error");
                 }
             }
-            });
+        });
         vigenere = new JButton("Vigenere Cipher");
         vigenere.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -163,26 +163,26 @@ public class CryptographyGUI
 
                 // gets key from key text field and sets as the key in cipher object
                 try {
-                key = keyInput.getText();
-                vigenereCipher.setCipherKey(key);
+                    key = keyInput.getText();
+                    vigenereCipher.setCipherKey(key);
 
-                // checks if encrypting or decrypting
-                if (encryptMode)
-                    cipherText = vigenereCipher.encrypt(plainText);
-                else
-                    cipherText = vigenereCipher.decrypt(plainText);
+                    // checks if encrypting or decrypting
+                    if (encryptMode)
+                        cipherText = vigenereCipher.encrypt(plainText);
+                    else
+                        cipherText = vigenereCipher.decrypt(plainText);
 
-                // puts result in the output label
-                output.setText(cipherText);
+                    // puts result in the output label
+                    output.setText(cipherText);
                 } catch (Exception ex) {
-                // create popup
-                messagePopUp("Incorrect input for Vigenere Cipher.\nPlaintext " +
-                        "is a String with only letters.\nKey is a String with " +
-                        "only letters.\nSpaces and numbers will cause an exception " +
-                        "to be thrown", "Vigenere Cipher Input Error");
+                    // create popup
+                    messagePopUp("Incorrect input for Vigenere Cipher.\nPlaintext " +
+                            "is a String with only letters.\nKey is a String with " +
+                            "only letters.\nSpaces and numbers will cause an exception " +
+                            "to be thrown", "Vigenere Cipher Input Error");
                 }
             }
-            });
+        });
         bifid = new JButton("Bifid Cipher");
         bifid.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -205,7 +205,7 @@ public class CryptographyGUI
                 } catch (Exception ex) {
                     // create popup
                     messagePopUp("Incorrect input for Bifid Cipher.\nPlaintext " +
-                            "input can be any String so long as there are no numbers.\nKey " +
+                            "input can be any String of UPPERCASE characters so long as there are no numbers.\nKey " +
                             "input can be any String that are not numbers.\nAll spaces and " +
                             "other characters will be deleted from the String.", "Bifid Cipher Input Error");
                 }
@@ -228,14 +228,14 @@ public class CryptographyGUI
             public void actionPerformed(ActionEvent e) {
                 // checks if encryption or decryption mode
                 if (encryptMode) {
-                encryptMode = false;
-                mode.setText("Switch to encryption");
+                    encryptMode = false;
+                    mode.setText("Switch to encryption");
                 } else {
-                encryptMode = true;
-                mode.setText("Switch to decryption");
+                    encryptMode = true;
+                    mode.setText("Switch to decryption");
                 }
             }
-            });
+        });
 
         // create info button and adds listener
         info = new JButton("Info");
@@ -256,7 +256,7 @@ public class CryptographyGUI
                         "should contain a string of characters.\n\nBifid Cipher:\n    The " +
                         "plaintext for the Bifid Cipher can contain spaces but no numbers \nand " +
                         "it will convert all characters to uppercase and remove all \nspaces. " +
-                        "Key text field should contain a string of characters\n","Info message");
+                        "Key text field should contain a string of UPPERCASE characters\n","Info message");
             }
         });
 
@@ -283,6 +283,6 @@ public class CryptographyGUI
     }
 
     public void messagePopUp(String message, String title) {
-	    JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 }
